@@ -1,8 +1,11 @@
-class Field:
+from abc import ABC, abstractmethod
+
+class Field(ABC):
     def __init__(self, value: str) -> None:
         self._value = None
         self.value = value
 
+    @abstractmethod
     def __str__(self) -> str:
         return self.value
     
