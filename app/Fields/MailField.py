@@ -15,6 +15,3 @@ class MailField(Field):
 
     def __eq__(self, other) -> bool:
         return self.value == other.value
-
-    def __str__(self) -> str:
-        pass

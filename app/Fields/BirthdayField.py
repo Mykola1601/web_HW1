@@ -22,5 +22,4 @@ class BirthdayField(Field):
     def in_datetime(self):
         return datetime.strptime(self.value, BirthdayField.birthday_format)
 
-    def __str__(self) -> str:
-        pass
+

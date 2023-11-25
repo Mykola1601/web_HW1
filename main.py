@@ -22,7 +22,7 @@ completer = NestedCompleter.from_nested_dict(variants)
 GREEN = "\033[92m"     #for green greeting
 
 def main():
-    print(f'{GREEN}\r\nHello!!! \r\nYoy can use "help" comand ')
+    print(f'{GREEN}\r\nHello!!! \r\nYou can use "help" comand ')
     while True:
         try:
             enter_string = (prompt (">>>", completer=completer )).strip()
@@ -43,3 +43,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # n = ADDRESS_BOOK.data.get('nina', None)
+    # print(n.name)
