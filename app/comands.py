@@ -4,6 +4,7 @@ from .Record import Record
 from .notes import Notebook, Note
 from datetime import datetime, timedelta
 from .sort_file import SortFile
+from .Console.Console import Console, RedConsole, GreenConsole
 
 ADDRESS_BOOK = AddressBook(5)
 NOTEBOOK = Notebook()
@@ -118,7 +119,6 @@ def delete_note(*args):
     else:
         return 'Note not found'
     
-
 @input_error
 def show_info (*args):
     name = args[0]
@@ -163,7 +163,7 @@ def search_note(*args):
 
 @input_error
 def show_all(*args):
-    print(args)
+    result = ''
     if len(args):
         raise IndexError
     if len(ADDRESS_BOOK):
@@ -173,8 +173,9 @@ def show_all(*args):
             page_output = f"Page {current_page} of {total_pages}:\n"
             for record in data:
                page_output += f"{record}\n"
-            print(output)
-            print(page_output)
+            result += output
+            result += page_output
+            GreenConsole.output(result)
             if current_page < total_pages:
                 inpt = input("pages >>> ")
                 if inpt == 'exit':
@@ -227,7 +228,6 @@ def add_birthday(*args):
     ADDRESS_BOOK.add_record(name)
     return name.name.value + ' add birthday ' + birthday
 
-
 @input_error
 def add_mail(*args):
     mail = args[1]
@@ -240,7 +240,6 @@ def add_mail(*args):
     name.add_mail(obj)
     ADDRESS_BOOK.add_record(name)
     return name.name.value + ' add mail ' + mail
-
 
 @input_error
 def add_adress(*args):
